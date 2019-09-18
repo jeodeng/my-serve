@@ -1,9 +1,6 @@
 import mongoose, { Promise } from 'mongoose';
 import _ from 'lodash';
 import mongodb from './mongodb';
-import config from '../../config';
-import { cpus } from 'os';
-import { isEmpty } from '_rxjs@5.5.12@rxjs/operators';
 
 // 集合名称
 const SYSTEMS = [

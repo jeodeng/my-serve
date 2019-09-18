@@ -241,5 +241,9 @@ export default {
     });
 
     return;
-  }
+  },
+  async test(ctx) {
+    ctx.body = 'hello world';
+    return;
+  },
 };

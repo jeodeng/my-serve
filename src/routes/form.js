@@ -28,5 +28,10 @@ export default [
     path: '/form/removeById',
     method: 'post',
     action: require('../actions/form').default.removeById,
-  }
+  },
+  {
+    path: '/form',
+    method: 'get',
+    action: require('../actions/form').default.test,
+  },
 ];
