@@ -2,10 +2,10 @@ import mongoose, { Promise } from 'mongoose';
 import _ from 'lodash';
 import mongodb from './mongodb';
 
-// 集合名称
+// 基础集合名称
 const SYSTEMS = [
-  'test',
-  'accounts',
+  'system_forms',
+  'system_forms_fields',
 ];
 
 const TYPES = {
@@ -16,41 +16,6 @@ const TYPES = {
   'Boolean': Boolean,
   'Array': Array,
   'Mixed': mongoose.Schema.Types.Mixed
-};
-
-const FORMS = {
-  forms: {},
-  get({ alias, form }) {
-    if (!alias || !form) {
-      throw {
-        err_desc: '数据库未设置'
-      };
-    }
-
-    const maps = (this.forms[ alias ] || (this.forms[ alias ] = {}));
-    return maps[ form ];
-  },
-  set({ alias, form, value }) {
-    if (!alias || !form) {
-      throw {
-        err_desc: '数据库未设置'
-      };
-    }
-
-    const maps = (this.forms[ alias ] || (this.forms[ alias ] = {}));
-    return maps[ form ] = value;
-  },
-  clear() {
-    this.forms = {};
-  },
-  alias() {
-    const alias = [];
-    for (const tmp in this.forms) {
-      alias.push(tmp);
-    }
-
-    return alias;
-  }
 };
 
 export default {
